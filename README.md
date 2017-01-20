@@ -21,4 +21,48 @@ dropin replacement for q
 ## Usage
 Use TypeScript for best in class instellisense.
 
+> Note: smartq uses native ES6 promises
+
+```javascript
+import * as q from 'smartq'
+
+let myAsyncFunction = (): Promise<string> => {
+    let done = q.defer() // returns your typical Deferred object
+    setTimeout(() => {
+        done.resolve('hi')
+    },6000)
+    return done.promise
+}
+
+let myAsyncFunction2 = async () => {
+    let aString = await myAsyncFunction()
+    console.log(aString) // will log 'hi' to console
+}
+
+myAsyncFunction2();
+q.all(myAsyncFunction(), myAsyncFunction2())
+    .then(() => {
+        console.log('all promises for q.all have been fullfilled')
+    })
+
+q.race(/* some promises here */)
+    .then(() => {
+        console.log('at least one promise for q.race is fullfilled')
+    })
+
+q.resolvedPromise(`I'll get logged to console soon`)
+    .then(x => {
+        console.log(x)
+    })
+
+q.rejectedPromise(`what a lovely error message`)
+    .then(() => {
+        console.log('This never makes it to console')
+    }/*, alternatively put a reject function here */)
+    .catch(err => {
+        console.log(err)
+    })
+
+```
+
 [![npm](https://push.rocks/assets/repo-header.svg)](https://push.rocks)
