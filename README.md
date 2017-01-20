@@ -27,9 +27,9 @@ Use TypeScript for best in class instellisense.
 import * as q from 'smartq'
 
 let myAsyncFunction = (): Promise<string> => {
-    let done = q.defer() // returns your typical Deferred object
+    let done = q.defer<string>() // returns your typical Deferred object
     setTimeout(() => {
-        done.resolve('hi')
+        done.resolve('hi') // will throw type error for other types than string as argument ;)
     },6000)
     return done.promise
 }
