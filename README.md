@@ -22,6 +22,7 @@ dropin replacement for q
 Use TypeScript for best in class instellisense.
 
 > Note: smartq uses native ES6 promises
+> smartq does not repeat any native functions, so for things like .all() simply use Promise.all()
 
 ```javascript
 import * as q from 'smartq'
@@ -40,15 +41,6 @@ let myAsyncFunction2 = async () => {
 }
 
 myAsyncFunction2();
-q.all(myAsyncFunction(), myAsyncFunction2())
-    .then(() => {
-        console.log('all promises for q.all have been fullfilled')
-    })
-
-q.race(/* some promises here */)
-    .then(() => {
-        console.log('at least one promise for q.race is fullfilled')
-    })
 
 q.resolvedPromise(`I'll get logged to console soon`)
     .then(x => {
