@@ -27,6 +27,8 @@ Use TypeScript for best in class instellisense.
 ```javascript
 import * as q from 'smartq'
 
+// Deferred
+// -----------------------------------------------
 let myAsyncFunction = (): Promise<string> => {
     let done = q.defer<string>() // returns your typical Deferred object
     setTimeout(() => {
@@ -42,6 +44,9 @@ let myAsyncFunction2 = async () => {
 
 myAsyncFunction2();
 
+
+// Resolved and Rejected promises
+// ------------------------------------------------
 q.resolvedPromise(`I'll get logged to console soon`)
     .then(x => {
         console.log(x)
@@ -55,6 +60,23 @@ q.rejectedPromise(`what a lovely error message`)
         console.log(err)
     })
 
+// Promisify (typed)
+// ------------------------------------------------
+
+let myCallbackedFunction = (someString: string, someNumber: number, cb) => {
+    cb(null, someString)
+}
+
+let myPromisedFunction = q.promisify(myCallbackFunction)
+myPromisedFunction('helloThere', 2).then(x => {
+    console.log(x) // will log 'helloThere' to console
+})
+
 ```
+
+## Dependency Credits:
+who | made what
+-- | --
+[notenoughneon](https://www.npmjs.com/~notenoughneon) | [typed-promisify](https://www.npmjs.com/package/typed-promisify)
 
 [![npm](https://push.rocks/assets/repo-header.svg)](https://push.rocks)

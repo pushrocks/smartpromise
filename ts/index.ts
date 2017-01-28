@@ -1,5 +1,7 @@
 import 'typings-global'
 
+import * as typedPromisify from 'typed-promisify'
+
 export interface IResolve<T> {
     (value?: T | Promise<T>): void
 }
@@ -37,3 +39,7 @@ export let resolvedPromise = <T>(value?: T): Promise<T> => {
 export let rejectedPromise = (err) => {
     return Promise.reject(err)
 }
+
+export let promisify = typedPromisify.promisify
+export let map = typedPromisify.map
+export let _try = typedPromisify._try
