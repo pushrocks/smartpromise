@@ -2,10 +2,10 @@
 dropin replacement for q
 
 ## Availabililty
-[![npm](https://push.rocks/assets/repo-button-npm.svg)](https://www.npmjs.com/package/smartq)
-[![git](https://push.rocks/assets/repo-button-git.svg)](https://GitLab.com/pushrocks/smartq)
-[![git](https://push.rocks/assets/repo-button-mirror.svg)](https://github.com/pushrocks/smartq)
-[![docs](https://push.rocks/assets/repo-button-docs.svg)](https://pushrocks.gitlab.io/smartq/)
+[![npm](https://pushrocks.gitlab.io/assets/repo-button-npm.svg)](https://www.npmjs.com/package/smartq)
+[![git](https://pushrocks.gitlab.io/assets/repo-button-git.svg)](https://GitLab.com/pushrocks/smartq)
+[![git](https://pushrocks.gitlab.io/assets/repo-button-mirror.svg)](https://github.com/pushrocks/smartq)
+[![docs](https://pushrocks.gitlab.io/assets/repo-button-docs.svg)](https://pushrocks.gitlab.io/smartq/)
 
 ## Status for master
 [![build status](https://GitLab.com/pushrocks/smartq/badges/master/build.svg)](https://GitLab.com/pushrocks/smartq/commits/master)
@@ -79,4 +79,8 @@ who | made what
 -- | --
 [notenoughneon](https://www.npmjs.com/~notenoughneon) | [typed-promisify](https://www.npmjs.com/package/typed-promisify)
 
-[![npm](https://push.rocks/assets/repo-header.svg)](https://push.rocks)
+For further information read the linked docs at the top of this README.
+
+> MIT licensed | **&copy;** [Lossless GmbH](https://lossless.gmbh)
+
+[![repo-footer](https://pushrocks.gitlab.io/assets/repo-footer.svg)](https://push.rocks)
