@@ -18,7 +18,8 @@
   },
   "homepage": "https://gitlab.com/pushrocks/smartq#README",
   "dependencies": {
-    "typings-global": "^1.0.19"
+    "typings-global": "^1.0.19",
+    "util.promisify": "^1.0.0"
   },
   "devDependencies": {
     "tapbundle": "^1.1.0"

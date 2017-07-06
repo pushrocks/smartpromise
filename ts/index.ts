@@ -39,8 +39,12 @@ export let rejectedPromise = (err) => {
   return Promise.reject(err)
 }
 
-// native promisify
 export let promisify = util.promisify
+
+// polyfill
+if (!promisify) {
+  promisify = require('util.promisify')
+}
 export let map = async <T> (inputArg: T[],functionArg) => {
   let promisifedFunction = promisify(functionArg)
   let promiseArray: Promise<any>[] = []
