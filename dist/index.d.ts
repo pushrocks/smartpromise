@@ -5,10 +5,12 @@ export interface IResolve<T> {
 export interface IReject {
     (reason?: any): void;
 }
+export declare type TDeferredStatus = 'pending' | 'fulfilled' | 'rejected';
 export declare class Deferred<T> {
     promise: Promise<T>;
     resolve: IResolve<T>;
     reject: IReject;
+    status: TDeferredStatus;
     constructor();
 }
 export declare let defer: <T>() => Deferred<T>;

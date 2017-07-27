@@ -9,14 +9,18 @@ export interface IReject {
   (reason?: any): void
 }
 
+export type TDeferredStatus = 'pending' | 'fulfilled' | 'rejected'
+
 export class Deferred<T> {
   promise: Promise<T>
   resolve: IResolve<T>
   reject: IReject
-  constructor() {
+  status: TDeferredStatus
+  constructor () {
     this.promise = new Promise<T>((resolve, reject) => {
       this.resolve = resolve
       this.reject = reject
+      this.status = 'pending'
     })
   }
 }
