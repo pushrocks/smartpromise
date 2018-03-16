@@ -1,13 +1,16 @@
 # smartq
+
 dropin replacement for q
 
 ## Availabililty
+
 [![npm](https://pushrocks.gitlab.io/assets/repo-button-npm.svg)](https://www.npmjs.com/package/smartq)
 [![git](https://pushrocks.gitlab.io/assets/repo-button-git.svg)](https://GitLab.com/pushrocks/smartq)
 [![git](https://pushrocks.gitlab.io/assets/repo-button-mirror.svg)](https://github.com/pushrocks/smartq)
 [![docs](https://pushrocks.gitlab.io/assets/repo-button-docs.svg)](https://pushrocks.gitlab.io/smartq/)
 
 ## Status for master
+
 [![build status](https://GitLab.com/pushrocks/smartq/badges/master/build.svg)](https://GitLab.com/pushrocks/smartq/commits/master)
 [![coverage report](https://GitLab.com/pushrocks/smartq/badges/master/coverage.svg)](https://GitLab.com/pushrocks/smartq/commits/master)
 [![npm downloads per month](https://img.shields.io/npm/dm/smartq.svg)](https://www.npmjs.com/package/smartq)
@@ -19,6 +22,7 @@ dropin replacement for q
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 ## Usage
+
 Use TypeScript for best in class instellisense.
 
 > Note: smartq uses native ES6 promises
@@ -71,7 +75,6 @@ let myPromisedFunction = q.promisify(myCallbackFunction)
 myPromisedFunction('helloThere', 2).then(x => {
     console.log(x) // will log 'helloThere' to console
 })
-
 ```
 
 For further information read the linked docs at the top of this README.

@@ -1,4 +1,5 @@
-import 'typings-global';
+/// <reference types="node" />
+import * as util from 'util';
 export interface IResolve<T> {
     (value?: T | Promise<T>): void;
 }
@@ -22,8 +23,5 @@ export declare let resolvedPromise: <T>(value?: T) => Promise<T>;
  * Creates a new rejected promise for the provided reason.
  */
 export declare let rejectedPromise: (err: any) => Promise<never>;
-export declare let promisify: {
-    (fn: Function): Function;
-    custom: symbol;
-};
+export declare let promisify: typeof util.promisify;
 export declare let map: <T>(inputArg: T[], functionArg: any) => Promise<any[]>;
