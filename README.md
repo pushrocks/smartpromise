@@ -1,4 +1,4 @@
-# smartq
+# smartpromise
 
 dropin replacement for q
 
