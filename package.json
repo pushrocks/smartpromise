@@ -19,9 +19,7 @@
     "url": "https://gitlab.com/pushrocks/smartq/issues"
   },
   "homepage": "https://gitlab.com/pushrocks/smartq#README",
-  "dependencies": {
-    "util.promisify": "^1.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@gitzone/tsrun": "^1.0.18",
     "@types/node": "^10.5.1",
