@@ -29,7 +29,7 @@ Use TypeScript for best in class instellisense.
 > smartq does not repeat any native functions, so for things like .all() simply use Promise.all()
 
 ```javascript
-import * as q from 'smartq'
+import * as q from '@pushrocks/smartpromise'
 
 // Deferred
 // -----------------------------------------------
