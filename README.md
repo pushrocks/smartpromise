@@ -1,6 +1,6 @@
-# smartpromise
+# @pushrocks/smartpromise
 
-dropin replacement for q
+smart helpers that work with promises
 
 ## Availabililty
 
