@@ -4,5 +4,15 @@
       "npmts"
     ],
     "npmAccessLevel": "public"
+  },
+  "gitzone": {
+    "module": {
+      "githost": "gitlab.com",
+      "gitscope": "pushrocks",
+      "gitrepo": "smartpromise",
+      "shortDescription": "simple promises and Deferred constructs",
+      "npmPackagename": "@pushrocks/smartpromise",
+      "license": "MIT"
+    }
   }
 }

@@ -18,8 +18,12 @@ tap.test('should let types flow through the Promise', async () => {
 
 tap.test('should map callbacks', async () => {
   let inputArray = ['hi', 'awesome'];
-  const myPromisified = async (myInput) => { return myInput };
-  const expectPromise = expect(q.map(inputArray, myPromisified)).to.eventually.deep.equal(inputArray);
+  const myPromisified = async myInput => {
+    return myInput;
+  };
+  const expectPromise = expect(q.map(inputArray, myPromisified)).to.eventually.deep.equal(
+    inputArray
+  );
   return expectPromise;
 });
 

@@ -41,10 +41,10 @@ export let rejectedPromise = err => {
 };
 
 interface IAsyncFunction<T> {
-  (someArg: T):Promise<T>
+  (someArg: T): Promise<T>;
 }
 
-export let map = async <T>(inputArg: T[], functionArg: IAsyncFunction<T> ) => {
+export let map = async <T>(inputArg: T[], functionArg: IAsyncFunction<T>) => {
   let promiseArray: Promise<any>[] = [];
   let resultArray = [];
   for (let item of inputArg) {
