@@ -1,5 +1,3 @@
-import * as util from 'util';
-
 export interface IResolve<T> {
   (value?: T | Promise<T>): void;
 }
@@ -42,14 +40,15 @@ export let rejectedPromise = err => {
   return Promise.reject(err);
 };
 
-export let promisify = util.promisify;
+interface IAsyncFunction<T> {
+  (someArg: T):Promise<T>
+}
 
-export let map = async <T>(inputArg: T[], functionArg) => {
-  let promisifedFunction = promisify(functionArg);
+export let map = async <T>(inputArg: T[], functionArg: IAsyncFunction<T> ) => {
   let promiseArray: Promise<any>[] = [];
   let resultArray = [];
   for (let item of inputArg) {
-    let promise: Promise<any> = promisifedFunction(item);
+    let promise: Promise<any> = functionArg(item);
     promiseArray.push(promise);
     promise.then(x => {
       resultArray.push(x);
