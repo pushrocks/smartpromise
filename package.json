@@ -6,8 +6,8 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "test": "(tsrun test/test.ts)",
-    "build": "(npmts)"
+    "test": "(tstest test/)",
+    "build": "(tsbuild)"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,22 @@
   "homepage": "https://gitlab.com/pushrocks/smartq#README",
   "dependencies": {},
   "devDependencies": {
-    "@gitzone/tsrun": "^1.0.18",
+    "@gitzone/tsbuild": "^2.1.17",
+    "@gitzone/tstest": "^1.0.24",
+    "@pushrocks/tapbundle": "^3.0.13",
     "@types/node": "^10.5.1",
-    "tapbundle": "^2.0.0"
-  }
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0"
+  },
+  "files": [
+    "ts/*",
+    "ts_web/*",
+    "dist/*",
+    "dist_web/*",
+    "dist_ts_web/*",
+    "assets/*",
+    "cli.js",
+    "npmextra.json",
+    "readme.md"
+  ]
 }

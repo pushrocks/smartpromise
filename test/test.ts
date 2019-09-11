@@ -1,4 +1,4 @@
-import { expect, tap } from 'tapbundle';
+import { expect, tap } from '@pushrocks/tapbundle';
 import * as q from '../ts/index';
 
 tap.test('should return a Deferred for .defer()', async () => {

@@ -1,13 +1,16 @@
 # @pushrocks/smartpromise
+
 simple promises and Deferred constructs
 
 ## Availabililty and Links
-* [npmjs.org (npm package)](https://www.npmjs.com/package/@pushrocks/smartpromise)
-* [gitlab.com (source)](https://gitlab.com/pushrocks/smartpromise)
-* [github.com (source mirror)](https://github.com/pushrocks/smartpromise)
-* [docs (typedoc)](https://pushrocks.gitlab.io/smartpromise/)
+
+- [npmjs.org (npm package)](https://www.npmjs.com/package/@pushrocks/smartpromise)
+- [gitlab.com (source)](https://gitlab.com/pushrocks/smartpromise)
+- [github.com (source mirror)](https://github.com/pushrocks/smartpromise)
+- [docs (typedoc)](https://pushrocks.gitlab.io/smartpromise/)
 
 ## Status for master
+
 [![build status](https://gitlab.com/pushrocks/smartpromise/badges/master/build.svg)](https://gitlab.com/pushrocks/smartpromise/commits/master)
 [![coverage report](https://gitlab.com/pushrocks/smartpromise/badges/master/coverage.svg)](https://gitlab.com/pushrocks/smartpromise/commits/master)
 [![npm downloads per month](https://img.shields.io/npm/dm/@pushrocks/smartpromise.svg)](https://www.npmjs.com/package/@pushrocks/smartpromise)
@@ -23,17 +26,24 @@ Use TypeScript for best in class instellisense.
 > Note: smartq uses native ES6 promises
 > smartq does not repeat any native functions, so for things like .all() simply use Promise.all()
 
-```javascript
+```typescript
 import * as q from '@pushrocks/smartpromise'
 
 // Deferred
 // -----------------------------------------------
 let myAsyncFunction = (): Promise<string> => {
-    let done = q.defer<string>() // returns your typical Deferred object
-    setTimeout(() => {
-        done.resolve('hi') // will throw type error for other types than string as argument ;)
-    },6000)
-    return done.promise
+  let done = q.defer<string>() // returns your typical Deferred object
+  setTimeout(() => {
+      done.resolve('hi') // will throw type error for other types than string as argument ;)
+  },6000);
+
+  console.log(done.status) // logs "pending";
+  done.promise.then(() => {
+    console.log(done.status) // logs "fullfilled"
+    console.log(done.duration) // logs the milliseconds between instantiation and fullfillment
+  })
+
+  return done.promise
 }
 
 let myAsyncFunction2 = async () => {
@@ -75,6 +85,6 @@ myPromisedFunction('helloThere', 2).then(x => {
 For further information read the linked docs at the top of this readme.
 
 > MIT licensed | **&copy;** [Lossless GmbH](https://lossless.gmbh)
-| By using this npm module you agree to our [privacy policy](https://lossless.gmbH/privacy.html)
+> | By using this npm module you agree to our [privacy policy](https://lossless.gmbH/privacy)
 
-[![repo-footer](https://pushrocks.gitlab.io/assets/repo-footer.svg)](https://maintainedby.lossless.com)
+[![repo-footer](https://lossless.gitlab.io/publicrelations/repofooter.svg)](https://maintainedby.lossless.com)

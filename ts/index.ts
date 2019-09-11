@@ -9,14 +9,34 @@ export interface IReject {
 export type TDeferredStatus = 'pending' | 'fulfilled' | 'rejected';
 
 export class Deferred<T> {
-  promise: Promise<T>;
-  resolve: IResolve<T>;
-  reject: IReject;
-  status: TDeferredStatus;
+  public promise: Promise<T>;
+  public resolve: IResolve<T>;
+  public reject: IReject;
+  public status: TDeferredStatus;
+
+  public startedAt: number;
+  public stoppedAt: number;
+  public get duration(): number {
+    if (this.stoppedAt) {
+      return this.stoppedAt - this.startedAt;
+    } else {
+      return Date.now() - this.startedAt;
+    }
+  }
+
   constructor() {
     this.promise = new Promise<T>((resolve, reject) => {
-      this.resolve = resolve;
-      this.reject = reject;
+      this.resolve = (valueArg: T | PromiseLike<T>) => {
+        this.status = 'fulfilled';
+        this.stoppedAt = Date.now();
+        resolve(valueArg);
+      };
+      this.reject = (reason: any) => {
+        this.status = 'rejected';
+        this.stoppedAt = Date.now();
+        reject(reason);
+      };
+      this.startedAt = Date.now();
       this.status = 'pending';
     });
   }
