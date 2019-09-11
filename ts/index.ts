@@ -1,5 +1,5 @@
 export interface IResolve<T> {
-  (value?: T | Promise<T>): void;
+  (value?: T | PromiseLike<T>): void;
 }
 
 export interface IReject {
