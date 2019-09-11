@@ -24,7 +24,7 @@
     "@gitzone/tsbuild": "^2.1.17",
     "@gitzone/tstest": "^1.0.24",
     "@pushrocks/tapbundle": "^3.0.13",
-    "@types/node": "^10.5.1",
+    "@types/node": "^12.7.5",
     "tslint": "^5.20.0",
     "tslint-config-prettier": "^1.18.0"
   },
