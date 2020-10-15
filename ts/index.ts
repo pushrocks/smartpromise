@@ -42,21 +42,21 @@ export class Deferred<T> {
   }
 }
 
-export let defer = <T>() => {
+export const defer = <T>() => {
   return new Deferred<T>();
 };
 
 /**
  * Creates a new resolved promise for the provided value.
  */
-export let resolvedPromise = <T>(value?: T): Promise<T> => {
+export const resolvedPromise = <T>(value?: T): Promise<T> => {
   return Promise.resolve(value);
 };
 
 /**
  * Creates a new rejected promise for the provided reason.
  */
-export let rejectedPromise = err => {
+export const rejectedPromise = (err) => {
   return Promise.reject(err);
 };
 
@@ -64,16 +64,31 @@ interface IAsyncFunction<T> {
   (someArg: T): Promise<T>;
 }
 
-export let map = async <T>(inputArg: T[], functionArg: IAsyncFunction<T>) => {
-  let promiseArray: Promise<any>[] = [];
-  let resultArray = [];
-  for (let item of inputArg) {
-    let promise: Promise<any> = functionArg(item);
+/**
+ * accepts an array of inputs and a function that accepts the input.
+ * runs all items with the function and returns the result array when all items have run
+ * @param inputArg
+ * @param functionArg
+ */
+export const map = async <T>(inputArg: T[], functionArg: IAsyncFunction<T>) => {
+  const promiseArray: Promise<any>[] = [];
+  const resultArray = [];
+  for (const item of inputArg) {
+    const promise: Promise<any> = functionArg(item);
     promiseArray.push(promise);
-    promise.then(x => {
+    promise.then((x) => {
       resultArray.push(x);
     });
   }
   await Promise.all(promiseArray);
   return resultArray;
+};
+
+export const timeoutWrap = (ms, promise) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject(new Error('timeout'));
+    }, ms);
+    promise.then(resolve, reject);
+  });
 };
