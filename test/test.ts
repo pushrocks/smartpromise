@@ -18,12 +18,12 @@ tap.test('should let types flow through the Promise', async () => {
 
 tap.test('should map callbacks', async () => {
   const inputArray = ['hi', 'awesome'];
-  const myPromisified = async myInput => {
+  const myPromisified = async (myInput) => {
     return myInput;
   };
-  const expectPromise = expect(smartpromise.map(inputArray, myPromisified)).to.eventually.deep.equal(
-    inputArray
-  );
+  const expectPromise = expect(
+    smartpromise.map(inputArray, myPromisified)
+  ).to.eventually.deep.equal(inputArray);
   return expectPromise;
 });
 
