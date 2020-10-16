@@ -84,11 +84,11 @@ export const map = async <T>(inputArg: T[], functionArg: IAsyncFunction<T>) => {
   return resultArray;
 };
 
-export const timeoutWrap = (ms, promise) => {
+export const timeoutWrap = <T = any>(promiseArg: Promise<T>, timeoutInMs: number) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       reject(new Error('timeout'));
-    }, ms);
-    promise.then(resolve, reject);
+    }, timeoutInMs);
+    promiseArg.then(resolve, reject);
   });
 };
