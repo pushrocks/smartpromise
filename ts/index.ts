@@ -94,7 +94,7 @@ export const timeoutWrap = <T = any>(promiseArg: Promise<T>, timeoutInMs: number
 };
 
 export const getFirstTrueOrFalse = async (promisesArg: Promise<boolean>[]) => {
-  const done = defer();
+  const done = defer<boolean>();
   for (const promiseArg of promisesArg) {
     promiseArg.then((resultArg) => {
       if (resultArg === true) {
